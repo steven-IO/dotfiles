@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=XMonad Session
+Comment=Use this session to run XMonad as your desktop environment
+Exec=/usr/share/xsessions/xmonad-startup.sh
+Icon=
+Type=Application
