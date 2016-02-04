@@ -6,6 +6,8 @@ First, clone the main file:
 $ git clone https://github.com/steven-IO/dotfiles.git
 ```
 
+---
+*Note:* The vim plugins are actually removed right now. Will figure out how I want this to work later.
 Then get the vim plugins:
 
 ```bash
@@ -13,6 +15,7 @@ $ cd dotfiles
 $ git submodule init
 $ git submodule update
 ```
+---
 
 Merge or remove any of the current configuration files from the home folder with the ones in this directory and create symlinks in their place:
 
