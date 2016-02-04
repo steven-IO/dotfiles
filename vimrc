@@ -1,12 +1,7 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
 " Authors: Steven IO
 " Description: This is a vimrc that I took from the vim wiki and modified.
 "
 "------------------------------------------------------------
-" Features
-"
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -85,7 +80,7 @@ set t_vb=
 set mouse=a
 
 " Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
+" 'press <Enter> to continue'
 set cmdheight=2
 
 " Display line numbers on the left
@@ -101,8 +96,6 @@ set lazyredraw
 
 "------------------------------------------------------------
 " Mappings
-"
-" Useful mappings
 
 " Map Y to yank until EOL, rather than act as yy,
 map Y y$
@@ -127,26 +120,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>v :vsplit<cr>
 
 "------------------------------------------------------------
-
-"if !exists('g:airline_symbols')
-"  let g:airline_symbols = {}
-"endif
-"let g:airline_powerline_fonts = 1
-"let g:airline_symbols.space = "\ua0"
-"let g:airline_left_sep = '▶▶'
-"let g:airline_left_sep = '≻≻≻'
-"let g:airline_left_sep = '⊣⊢⊣⊢'
-let g:airline_left_sep = ' ❱❱❱ '
-let g:airline_right_sep = ' ❰❰❰ '
-"let g:airline_left_sep = ' ❩❩❩ '
+" Misc. Configurations
 
 set noswapfile
 
 "Terminal recognizes colors correctly
 set t_Co=256
 
-"Recognize .md files as markdown.
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 "Turn tabs into four spaces.
 set tabstop=4
@@ -158,7 +138,10 @@ set expandtab
 "let base16colorspace=256 
 "colorscheme base16-bespin
 
-"In addition to searching for the word under the cursor, * in normal mode will search for the current visual selection
+"---------------------------------------------------------
+" Longer and More complex configurations (functions, etc.)
+
+" In addition to searching for the word under the cursor, * in normal mode will search for the current visual selection
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 
@@ -168,3 +151,23 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
     let @s = temp
 endfunction
+
+" Recognize .md files as markdown.
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+"--------------------------
+" Vim Plugin Configurations
+
+" vim-airline
+"
+"if !exists('g:airline_symbols')
+"  let g:airline_symbols = {}
+"endif
+"let g:airline_powerline_fonts = 1
+"let g:airline_symbols.space = \"\ua0\"
+"let g:airline_left_sep = '▶▶'
+"let g:airline_left_sep = '≻≻≻'
+"let g:airline_left_sep = '⊣⊢⊣⊢'
+let g:airline_left_sep = ' ❱❱❱ '
+let g:airline_right_sep = ' ❰❰❰ '
+"let g:airline_left_sep = ' ❩❩❩ '
