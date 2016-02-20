@@ -69,7 +69,7 @@ set laststatus=2
 set confirm
 
 " Use visual bell instead of beeping when doing something wrong
-set visualbell
+" set visualbell
 
 " And reset the terminal code for the visual bell. If visualbell is set, and
 " this line is also included, vim will neither flash nor beep. If visualbell
@@ -119,6 +119,19 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nnoremap <leader>v :vsplit<cr>
 
+"---Syntastic mappings---
+
+if exists(':SyntasticToggleMode<CR>')
+    map <leader>s :SyntasticToggleMode<CR>
+endif
+
+"===Neovim mappings===
+if has('nvim')
+    tnoremap <C-[> <C-\><C-n>
+
+    nnoremap <leader>t :terminal<cr>
+endif
+
 "------------------------------------------------------------
 " Misc. Configurations
 
@@ -157,17 +170,54 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 "--------------------------
 " Vim Plugin Configurations
-
-" vim-airline
 "
-"if !exists('g:airline_symbols')
-"  let g:airline_symbols = {}
-"endif
+" Notes: plugin specific mappings are in the mapping section.
+
+"===vim-airline===
+"
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 "let g:airline_powerline_fonts = 1
 "let g:airline_symbols.space = \"\ua0\"
 "let g:airline_left_sep = '▶▶'
 "let g:airline_left_sep = '≻≻≻'
 "let g:airline_left_sep = '⊣⊢⊣⊢'
-let g:airline_left_sep = ' ❱❱❱ '
-let g:airline_right_sep = ' ❰❰❰ '
 "let g:airline_left_sep = ' ❩❩❩ '
+
+"let g:airline_left_sep = ' ❱❱❱ '
+"let g:airline_right_sep = ' ❰❰❰ '
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+"---Syntastic---
+
+if exists(':SyntasticToggleMode<CR>')
+    let g:airline#exstensions#syntastic#enabled = 1
+
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    " Stephen Diehl says to set the following two to zero, but syntastic suggests
+    " one. We'll see what I like it at.
+    let g:syntastic_auto_loc_list = 0
+    let g:syntastic_check_on_open = 0
+
+    let g:syntastic_check_on_wq = 0
+endif
+
+"--------------------------
+" Neovim configurations
+" 
+" Note: Neovim specific mappings are in the mapping section.
+
+" Put this back in once there are actual configurations.
+"if has('nvim')
+"endif
