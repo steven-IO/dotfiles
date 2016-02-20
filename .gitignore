@@ -1,3 +1,6 @@
 .netrwhist
 *~
-vim/bundle/*
+vim/*
+nvim/*
+!vim/.setup.markdown
+!nvim/.setup.markdown

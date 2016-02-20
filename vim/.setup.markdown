@@ -1,0 +1,19 @@
+#Vim directory setup
+
+Since all of the plugins I use are in github already, there's no point in taking up more space in the repo with them. I might eventually use submodules. However, I would like to list which plugins I use for reference.
+
+##Plugins
+
+- base16-vim
+
+- ghcmod-vim
+
+- syntastic
+
+- rust.vim
+
+- vim-airline
+
+- vim-fugitive
+
+- vimproc.vim
