@@ -116,11 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export M2_HOME=/usr/local/apache-maven
-export M2=$M2_HOME/bin
-export PATH=$M2:$PATH
-export PATH=~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:/usr/local/apache-maven/bin:/usr/local/apache-maven/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-
 #Make vim default system editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
