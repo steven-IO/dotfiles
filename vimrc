@@ -149,6 +149,10 @@ set expandtab
 "let base16colorspace=256 
 "colorscheme base16-bespin
 
+" Wild cards ignore those patterns. Good for file searching.
+"
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 "---------------------------------------------------------
 " Longer and More complex configurations (functions, etc.)
 
@@ -203,12 +207,29 @@ if exists(':SyntasticToggleMode<CR>')
     set statusline+=%*
 
     let g:syntastic_always_populate_loc_list = 1
-    " Stephen Diehl says to set the following two to zero, but syntastic suggests
-    " one. We'll see what I like it at.
-    let g:syntastic_auto_loc_list = 0
-    let g:syntastic_check_on_open = 0
 
+    " Don't like having the error window open when it hits an error. I usually
+    " already know what the error is. I can open it up if I don't.
+    let g:syntastic_auto_loc_list = 0
+
+    let g:syntastic_check_on_open = 0
     let g:syntastic_check_on_wq = 0
+endif
+
+"===CtrlP===
+
+if exists(':CtrlP<CR>')
+    let g:ctrlp_working_path_mode = 'ra'
+
+    let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'link': 'some_bad_symbolic_links',
+      \ }
+
+    " Ignores files in .gitignore.
+    " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 endif
 
 "--------------------------
