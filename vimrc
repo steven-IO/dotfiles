@@ -117,11 +117,18 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nnoremap <leader>v :vsplit<cr>
 
+nnoremap <leader>c :close<cr>
+
 "---Syntastic mappings---
 
 if exists(':SyntasticToggleMode<CR>')
     map <leader>s :SyntasticToggleMode<CR>
 endif
+
+"===fzf===
+
+" Probably could do something cool. Especially with some of the commands for
+" fzf.vim. I think the buffer one could be useful.
 
 "===Neovim mappings===
 if has('nvim')
@@ -231,6 +238,12 @@ if exists(':CtrlP<CR>')
     " Ignores files in .gitignore.
     " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 endif
+
+"===fzf===
+"
+"Not exactly a plugin, but plugin like.
+
+set rtp+=~/.fzf
 
 "--------------------------
 " Neovim configurations
